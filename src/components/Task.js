@@ -1,35 +1,35 @@
-function Task({ task, completeTask, priority}) {
-    return (
-    
-      <div className="card text-left" key={task.id}>
-        <div className="row">
-          <div className="col-10">
-            <h4>Description: {task.desc}</h4>
-            <div className="task-meta">
-                <p>{task.te}</p>
-              <img
-                src="https://icongr.am/feather/calendar.svg?size=12&color=b5b5b5"
-                alt="calendar"
-              />
-              <h4>Date: {task.date}</h4>
-            </div>
-            <h4>priority: {task.priority}</h4>
-          </div>
-  
-          <div className="col-2 is-center">
-          <button className="checkBtn" onClick={() => completeTask(task)}>Click to complete
-          {task.status =="completed" && "✅"}
-  {!task.status =="completed" && "⬜"}
-  
-              
-            </button>
-           
-          </div>
-          
-        </div>
-      </div>
-    );
-  }
-  
-  export default Task;
-  
+//this is what will add all the date we see on the screen, the labels and the information we input will be displayed from here
+import "../App.css";
+function Task({ task, completeTask, editTask }) {
+  console.log(task);
+  return (
+    <div className="task-container" key={task.id}>
+      <h4>
+        <b>Description:</b>{" "}
+      </h4>
+      <p>{task.te}</p>
+      <img
+        className="pic"
+        src="https://icongr.am/feather/calendar.svg?size=12&color=b5b5b5"
+        alt="calendar"
+      />
+      <p> {task.date} </p>
+      <p>
+        <b>priority:</b> {task.priority}
+      </p>
+      <p>
+        <b>class:</b> {task.subject}
+      </p>
+
+      <button className="common-button" onClick={() => editTask(task)}>
+        Edit
+      </button>
+      <button className="common-button" onClick={() => completeTask(task)}>
+        {task.status === "completed" && "Done ✅"}
+        {task.status !== "completed" && "Click to complete ⬜"}
+      </button>
+    </div>
+  );
+}
+
+export default Task;

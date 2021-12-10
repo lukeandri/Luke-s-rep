@@ -1,8 +1,8 @@
-//testing out how to export things into app.js 
+//learning how to export things into app.js
 export default function helloworld() {
-    return (
-      <>
-        <h3>Hello World</h3>
-      </>
-    );
-  }
+  return (
+    <>
+      <h3>Hello World</h3>
+    </>
+  );
+}
